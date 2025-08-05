@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibrate Phone</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        button {
+            padding: 20px 40px;
+            font-size: 16px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:active {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <button id="vibrateButton">Vibrate</button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const vibrateButton = document.getElementById('vibrateButton');
+            let isVibrating = false;
+
+            vibrateButton.addEventListener('click', () => {
+                if (isVibrating) {
+                    // Stop vibration
+                    navigator.vibrate(0);
+                    vibrateButton.textContent = 'Vibrate';
+                } else {
+                    // Start vibration
+                    navigator.vibrate(1000); // Vibrate for 1 second
+                    vibrateButton.textContent = 'Stop Vibrating';
+                }
+                isVibrating = !isVibrating;
+            });
+        });
+    </script>
+</body>
+</html>
