@@ -31,23 +31,24 @@
     <button id="vibrateButton">Vibrate</button>
 
     <script>
-        document.addEventListener('DOMContentLoaded', (event) => {
-            const vibrateButton = document.getElementById('vibrateButton');
-            let isVibrating = false;
+       document.addEventListener('DOMContentLoaded', (event) => {
+    const vibrateButton = document.getElementById('vibrateButton');
+    let isVibrating = false;
 
-            vibrateButton.addEventListener('click', () => {
-                if (isVibrating) {
-                    // Stop vibration
-                    navigator.vibrate(0);
-                    vibrateButton.textContent = 'Vibrate';
-                } else {
-                    // Start vibration
-                    navigator.vibrate(1000); // Vibrate for 1 second
-                    vibrateButton.textContent = 'Stop Vibrating';
-                }
-                isVibrating = !isVibrating;
-            });
-        });
+    vibrateButton.addEventListener('click', () => {
+        if (isVibrating) {
+            // Stop vibration
+            navigator.vibrate(0);
+            vibrateButton.textContent = 'Vibrate';
+        } else {
+            // Start vibration
+            navigator.vibrate([100, 100, 100, 100, 100, 100, 100, 100, 100, 100]); // Vibrate in a pattern
+            vibrateButton.textContent = 'Stop Vibrating';
+        }
+        isVibrating = !isVibrating;
+    });
+});
     </script>
 </body>
 </html>
+
